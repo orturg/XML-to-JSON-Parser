@@ -12,7 +12,7 @@ This parser takes string written in valid XML format (it can include tags, attri
     <title id = "1">XML_to_JSON</title>
     <author>Artur Nozhenko</author>
 </parser>
-
+```
 ### Output
 ```
 {
