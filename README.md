@@ -1,4 +1,4 @@
-# XML-to-JSON-Parser
+# XML_to_JSON_Parser
 Parser that converts simple XML language text to a string in JSON format written on Rust.
 
 ## Parser Overview
