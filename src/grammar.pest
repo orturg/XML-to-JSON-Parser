@@ -1,3 +1,0 @@
-WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
-
-inner_text = @{ (!"<" ~ ANY)+ }

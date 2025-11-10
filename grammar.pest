@@ -1,0 +1,12 @@
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+
+inner_text = @{ (!"<" ~ ANY)+ }
+name = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "-" | "_")* }
+
+attribute_value = @{ (!"\"" ~ ANY)* }
+attribute = { name ~ "=" ~ "\"" ~ attribute_value ~ "\"" }
+open_tag = { "<" ~ name ~ (WHITESPACE* ~ attribute)* ~ ">" }
+close_tag = { "</" ~ name ~ ">" }
+element = { open_tag ~ (element | inner_text)* ~ close_tag }
+
+xml = { SOI ~ element ~ EOI }
