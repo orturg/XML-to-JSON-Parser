@@ -4,6 +4,24 @@ Parser that converts simple XML language text to a string in JSON format written
 ## Parser Overview
 This parser takes string written in valid XML format (it can include tags, attributestags) and returns string written in JSON format.
 
+## Grammar 
+
+```
+WHITESPACE = _{ " " | "\t" | "\r" | "\n" }
+
+inner_text = @{ (!"<" ~ ANY)+ }
+name = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "-" | "_")* }
+
+attribute_value = @{ (!"\"" ~ ANY)* }
+attribute = { name ~ "=" ~ "\"" ~ attribute_value ~ "\"" }
+open_tag = { "<" ~ name ~ (WHITESPACE* ~ attribute)* ~ ">" }
+close_tag = { "</" ~ name ~ ">" }
+element = { open_tag ~ (element | inner_text)* ~ close_tag }
+
+xml = { SOI ~ element ~ EOI }
+
+```
+
 ## Example 
 
 ### Input
