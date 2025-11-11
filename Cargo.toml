@@ -1,5 +1,5 @@
 [package]
-name = "XML_to_JSON_Parser"
+name = "xml-to-json-parser"
 version = "0.1.0"
 edition = "2024"
 license = "MIT"
@@ -12,3 +12,7 @@ peg = "0.8.5"
 pest = "2.8.3"
 pest_derive = "2.8.3"
 serde_json = "1.0.145"
+
+[[bin]]
+name = "xml_to_json_parser"
+path = "src/main.rs"
